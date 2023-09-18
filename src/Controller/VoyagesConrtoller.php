@@ -1,21 +1,23 @@
 <?php
 namespace App\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-/**
- * Description VoyagesController
- *
- * @author s
- */
 
- class VoyagesController extends AbstractController{
-     /**
+/**
+ * Description of VoyagesConrtoller
+ *
+ * @author emds
+ */
+class VoyagesConrtoller extends AbstractController{
+
+    /**
      * @Route("/voyages", name="voyages")
      * @return Response
      */
-    public function index() : Response{
+    public function index(): Response{
         return $this->render("pages/voyages.html.twig");
     }
- }
+
+}
