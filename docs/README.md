@@ -100,11 +100,11 @@ adding fields):
 
 Fixture pour générer des data aléoatoirement , grace à au bundle doctrineFixturesBundles
 
-Installer l’outil  qui permettra de générer des enrengistrement 
+- Installer l’outil  qui permettra de générer des enrengistrement 
 
 composer require orm-fixtures --dev
 
-Creer une classe fixture stocké dans /src/DataFixtures
+- Creer une classe fixture stocké dans /src/DataFixtures
 
 php bin/console make:fixture
 
@@ -112,4 +112,10 @@ Pour éxecuter la méthode Load dans la console , le code va générer des reque
 Cette action va vidé le contenu de la bdd attention
 
 php bin/console doctrine:fixtures:load
+
+
+
+Info ----------------------------------------------------
+- Pour les pages twig pour afficher une date à un format donnée 
+ visite.dateCreation|date('d/m/Y ')
 
