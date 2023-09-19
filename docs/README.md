@@ -97,3 +97,19 @@ adding fields):
  Next: When you're ready, create a migration with php bin/console make:migration
 
 -----------------------------------------------------
+
+Fixture pour générer des data aléoatoirement , grace à au bundle doctrineFixturesBundles
+
+Installer l’outil  qui permettra de générer des enrengistrement 
+
+composer require orm-fixtures --dev
+
+Creer une classe fixture stocké dans /src/DataFixtures
+
+php bin/console make:fixture
+
+Pour éxecuter la méthode Load dans la console , le code va générer des requete sql insert 
+Cette action va vidé le contenu de la bdd attention
+
+php bin/console doctrine:fixtures:load
+
