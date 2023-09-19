@@ -5,11 +5,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\VisitesRepository;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Description of VoyagesConrtoller
  *
- * @author emds
+ * 
  */
 class VoyagesConrtoller extends AbstractController{
 
@@ -49,5 +50,20 @@ class VoyagesConrtoller extends AbstractController{
         ]);
     }
 
+  /**
+     * @Route("/voyages/recherche/{champ}", name="voyages.findallequal")
+     * @param type $champ
+     * @param Request $request
+     * @return Response
+     */
+    public function findAllEqual($champ, Request $request): Response{
+        $valeur = $request->get("recherche");
+        $visites = $this->reposority->findByEqualValue($champ, $valeur);
+        return $this->render("pages/voyages.html.twig", [
+            'visites' => $visites
+        ]);
+    }
+
 
 }
+
