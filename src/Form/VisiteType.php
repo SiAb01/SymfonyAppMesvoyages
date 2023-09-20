@@ -9,6 +9,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use DateTime;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 class VisiteType extends AbstractType
 {
@@ -30,6 +31,13 @@ class VisiteType extends AbstractType
         ])
         ->add('tempmax', null, [
             'label' => 't° max'])
+        // Crée un champ de formulaire permettant de sélectionner plusieurs environnements.
+        ->add('environnements', EntityType::class, [
+            'class' => \App\Entity\Environnement::class,
+            'choice_label' => 'nom',
+            'multiple' => true,
+            'required' => false
+        ])
             // ajout du bouton pour pour soumettre le formulaire
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'
