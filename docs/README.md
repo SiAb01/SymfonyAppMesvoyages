@@ -114,4 +114,36 @@ Info ----------------------------------------------------
 
 
 
+Environnement
 
+environnements
+
+ManyToMany
+
+Lier 2 entity
+
+php bin/console make:entity
+
+ Class name of the entity to create or update (e.g. DeliciousPizza):
+ > Visites
+
+ Your entity already exists! So let's add some new fields!
+
+ New property name (press <return> to stop adding fields):
+ > environnements
+
+ Field type (enter ? to see all types) [string]:
+ > relation
+
+ What class should this entity be related to?:
+ > Environnement
+
+What type of relationship is this?
+
+Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
+ > ManyToMany
+
+ Do you want to add a new property to Environnement so that you can access/update Visites objects from it - e.g. $environnement->getVisites()? (yes/no) [yes]:
+ > no
+
+ updated: src/Entity/Visites.php
