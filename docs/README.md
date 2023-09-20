@@ -147,3 +147,5 @@ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
  > no
 
  updated: src/Entity/Visites.php
+
+"Phase 16 : ORM (gestion des environnements : ajout et suppression)."
