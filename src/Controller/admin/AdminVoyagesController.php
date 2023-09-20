@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use App\Repository\VisitesRepository;
 use App\Entity\Visites;
+use App\Form\VisiteType ;
 
 
 /**
@@ -49,5 +50,26 @@ public function suppr(Visites $visites): Response{
     return $this->redirectToRoute('admin.voyages');
 }
 
+
+/**
+     * @Route("/admin/edit/{id}", name="admin.voyage.edit")
+     * @param Visites $visite
+     * @param Request $request
+     * @return Response
+     */
+    public function edit(Visites $visite, Request $request): Response{
+        $formVisite = $this->createForm(VisiteType::class, $visite);
+
+        $formVisite->handleRequest($request);
+        if($formVisite->isSubmitted() && $formVisite->isValid()){
+            $this->repository->add($visite, true);
+            return $this->redirectToRoute('admin.voyages');
+        }     
+
+        return $this->render("admin/admin.voyage.edit.html.twig", [
+            'visite' => $visite,
+            'formvisite' => $formVisite->createView()
+        ]);        
+    }
 
 }

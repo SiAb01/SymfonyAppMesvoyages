@@ -12,6 +12,8 @@ Entity/visites.php par un contrôleur est empechéché avec ce message d'erreur
 
  Solution testé et validé: Configurer Entity\Visites manuellement en tant que services dans le fichier services.yaml
 
+ Ajout de "bootstrap_5_layout.html.twig"  "config/packages/twig.yaml" pour améliorer apparence des formulaires
+
 
 
 
@@ -81,37 +83,7 @@ adding fields):
  Add another property? Enter the property name (or press <return> to stop 
 adding fields):
  > note
-
- Field type (enter ? to see all types) [string]:
- > integer
-
- Can this field be null in the database (nullable) (yes/no) [no]:
- > yes
-
- updated: src/Entity/Visites.php
-
- Add another property? Enter the property name (or press <return> to stop 
-adding fields):
- > avis
-
- Field type (enter ? to see all types) [string]:
- > text
-
- Can this field be null in the database (nullable) (yes/no) [no]:
- > yes
-
- updated: src/Entity/Visites.php
-
- Add another property? Enter the property name (or press <return> to stop 
-adding fields):
- >  
-
-
- 
-  Success! 
- 
-
- Next: When you're ready, create a migration with php bin/console make:migration
+migration with php bin/console make:migration
 
 -----------------------------------------------------
 
@@ -131,8 +103,15 @@ Cette action va vidé le contenu de la bdd attention
 php bin/console doctrine:fixtures:load
 
 
+Pour générer form à partir d'une entity
+php bin/console make:form
+
+  
 
 Info ----------------------------------------------------
 - Pour les pages twig pour afficher une date à un format donnée 
  visite.dateCreation|date('d/m/Y ')
+
+
+
 
