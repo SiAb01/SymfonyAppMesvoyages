@@ -29,7 +29,9 @@ class VisitesRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+/**
+ * 
+ */
     public function remove(Visites $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
@@ -75,6 +77,7 @@ class VisitesRepository extends ServiceEntityRepository
         }
     }
 
+  
 
 //    /**
 //     * @return Visites[] Returns an array of Visites objects

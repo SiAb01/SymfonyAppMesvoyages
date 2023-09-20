@@ -1,3 +1,20 @@
+INFORMATIONS
+
+Package fzaninotto/faker is abandoned, you should avoid using it. No replacement was suggested.
+Package sensio/framework-extra-bundle is abandoned, you should avoid using it. Use Symfony instead.
+
+sensio/framework-extra-bundle a été installé mais finalement pas été utilisé .
+
+Si lors de l'utilisation
+Entity/visites.php par un contrôleur est empechéché avec ce message d'erreur 
+
+ Cannot autowire argument $visites of "App\Controller\admin\AdminVoyagesController::suppr()": it references class "App\Entity\Visites" but no such service exists.
+
+ Solution testé et validé: Configurer Entity\Visites manuellement en tant que services dans le fichier services.yaml
+
+
+
+
 1- ORM Doctrine
 
 Ici sera répertorié les instructions sur console : 
