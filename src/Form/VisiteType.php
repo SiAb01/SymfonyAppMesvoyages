@@ -3,11 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Visites;
+use App\Entity\Environnement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use DateTime;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
@@ -33,11 +35,17 @@ class VisiteType extends AbstractType
             'label' => 't° max'])
         // Crée un champ de formulaire permettant de sélectionner plusieurs environnements.
         ->add('environnements', EntityType::class, [
-            'class' => \App\Entity\Environnement::class,
+            'class' => Environnement::class,
             'choice_label' => 'nom',
             'multiple' => true,
             'required' => false
         ])
+        // champ pour l'image 
+        ->add('imageFile', FileType::class, [
+            'required' => false,
+            'label' => 'sélection image'
+        ])
+
             // ajout du bouton pour pour soumettre le formulaire
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer'

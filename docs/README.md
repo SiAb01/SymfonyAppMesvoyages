@@ -14,6 +14,12 @@ Entity/visites.php par un contrôleur est empechéché avec ce message d'erreur
 
  Ajout de "bootstrap_5_layout.html.twig"  "config/packages/twig.yaml" pour améliorer apparence des formulaires
 
+ Installer le bundle pour uplouader des images
+composer require  vich/uploader-bundle 1.19.0
+Faire en cas de besoin dessintaller le bundle 
+composer remove vich/uploader-bundle --update-with-dependencies --dev
+
+
 
 
 
