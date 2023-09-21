@@ -59,12 +59,20 @@ class VoyagesConrtoller extends AbstractController{
      * @return Response
      */
     public function findAllEqual($champ, Request $request): Response{
-        $valeur = $request->get("recherche");
-        $visites = $this->reposority->findByEqualValue($champ, $valeur);
-        return $this->render("pages/voyages.html.twig", [
-            'visites' => $visites
-        ]);
+         // Ajout d'un jeton CSRF dans le formulaire de recherche pour des raisons de sécurité
+        // Vérifie si le jeton CSRF est valide en utilisant une clé spécifique ('filtre_'.$champ)
+        if($this->isCsrfTokenValid('filtre_'.$champ, $request->get('_token'))){
+            $valeur = $request->get("recherche");
+            $visites = $this->reposority->findByEqualValue($champ, $valeur);
+            return $this->render("pages/voyages.html.twig", [
+                'visites' => $visites
+            ]);
+        }
+        return $this->redirectToRoute("voyages");   
     }
+
+
+
 
 
     /**
