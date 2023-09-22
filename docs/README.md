@@ -1,4 +1,4 @@
-INFORMATIONS
+                          INFORMATIONS
 
 Package fzaninotto/faker is abandoned, you should avoid using it. No replacement was suggested.
 Package sensio/framework-extra-bundle is abandoned, you should avoid using it. Use Symfony instead.
@@ -14,16 +14,30 @@ Entity/visites.php par un contrôleur est empechéché avec ce message d'erreur
 
  Ajout de "bootstrap_5_layout.html.twig"  "config/packages/twig.yaml" pour améliorer apparence des formulaires
 
- Installer le bundle pour uplouader des images
+    Installer le bundle pour uplouader des images
 composer require  vich/uploader-bundle 1.19.0
 Faire en cas de besoin dessintaller le bundle 
 composer remove vich/uploader-bundle --update-with-dependencies --dev
 
+    Installation d'un simulateur serveur de mail : Maildev
+- installer nodejs ici version 18.18.0 LTS
+- Installer maildev sur le repertoire du projet  : npm install -g maildev
+- Lancer maildev : maildev
+Si vous obtenez une erreur SSL, alors tapez la commande :
+maildev --hide-extensions STARTTLS.
+Lewebapp http://localhost:1080/ et serveur smtp http://localhost:1025/
+-Configuration variable environnement de la source de données du serveur mail dans le fichien env
+ MAILER_DSN=smtp://localhost:1025 
 
 
 
 
-1- ORM Doctrine
+
+
+
+
+
+        1- ORM Doctrine
 
 Ici sera répertorié les instructions sur console : 
 Création database "voyages"

@@ -72,7 +72,6 @@ class VisitesRepository extends ServiceEntityRepository
         }else{
             return $this->createQueryBuilder('v')
                     ->where('v.'.$champ.'=:valeur')
-                    //Toujours ajouter  SetParameter pour éviter les injections sql
                     ->setParameter('valeur', $valeur)
                     ->orderBy('v.datecreation', 'DESC')
                     ->getQuery()

@@ -1,3 +1,4 @@
 framework:
     mailer:
         dsn: '%env(MAILER_DSN)%'
+        message_bus: false  # Désactivez le message bus permet l'envoi en temps réel des email sans queue
