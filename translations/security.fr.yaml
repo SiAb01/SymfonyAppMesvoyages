@@ -1,0 +1,2 @@
+security:
+    bad_credentials: "Identifiants incorrects. Veuillez réessayer."

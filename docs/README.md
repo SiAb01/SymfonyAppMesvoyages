@@ -29,7 +29,18 @@ Lewebapp http://localhost:1080/ et serveur smtp http://localhost:1025/
 -Configuration variable environnement de la source de données du serveur mail dans le fichien env
  MAILER_DSN=smtp://localhost:1025 
 
+    Automatisation des tests
 
+Tests de composants (tests unitaire) extends TestCase
+Tests d'intégration extends KernelTestCase
+Tests système (tests fonctionnels) extends WebTestCase
+
+- PhpUnit est un framework de test dans une application Symfony
+La commmande "php bin/phpunit" permet d'éxécuter tous les test unitaires et d'intégrations qui ont été écrits ou " php bin/phpunit --filter NomClasseTest "
+- Les classes tests doit etre dans un repertoire test
+
+
+DATABASE_URL="mysql://root:@127.0.0.1:3306/voyages" 
 
 
 
@@ -167,5 +178,47 @@ Relation type? [ManyToOne, OneToMany, ManyToMany, OneToOne]:
  > no
 
  updated: src/Entity/Visites.php
+
+
+    Implemntation de l'authentification à l'accès à la partie admin 
+
+
+1- Creer l'entity User
+
+php bin/console make:user
+
+ The name of the security user class (e.g. User) [User]:
+ > User
+
+ Do you want to store user data in the database (via Doctrine)? (yes/no) [yes]:
+ > y
+
+ Enter a property name that will be the unique "display" name for the 
+user (e.g. email, username, uuid) [email]:
+ > username
+
+ Will this app need to hash/check user passwords? Choose No if passwords are not needed or will be checked/hashed by some other system (e.g. a single sign-on server).
+
+ Does this app need to hash/check user passwords? (yes/no) [yes]:     
+ > y
+
+  created: src/Entity/User.php
+ created: src/Repository/UserRepository.php
+ updated: src/Entity/User.php
+ updated: config/packages/security.yaml 
+
+
+ php bin/console make:migration
+
+ php bin/console doctrine:migrations:migrate
+
+ Pour remplir les users dans la bdd
+
+ Utilisation de fixture User
+ php bin/console make:fixture
+ 'php bin/console doctrine:fixtures:load --append --group=Use' permet de charger des données de test (fixtures) dans la base de données de l'application Symfony, en ajoutant ces données au groupe spécifié ("Use") sans supprimer les données existantes.
+
+
+
 
 
